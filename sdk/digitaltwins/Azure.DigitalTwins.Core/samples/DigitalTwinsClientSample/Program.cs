@@ -93,12 +93,8 @@ namespace Azure.DigitalTwins.Core.Samples
 
             // By using the ClientSecretCredential, a specified application Id can login using a
             // client secret.
-            var tokenCredential = new ClientSecretCredential(
-                tenantId,
-                clientId,
-                clientSecret,
-                new TokenCredentialOptions { AuthorityHost = KnownAuthorityHosts.AzureCloud });
-
+            var tokenCredential = new DefaultAzureCredential();
+            
             var client = new DigitalTwinsClient(
                 new Uri(adtEndpoint),
                 tokenCredential);
